@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portofolio Tailwind</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Konfigurasi Tailwind untuk animasi -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          keyframes: {
+            fadeInSlow: {
+              '0%': { opacity: '0', transform: 'translateY(30px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+          },
+          animation: {
+            fadeInSlow: 'fadeInSlow 2s ease-out forwards',
+          },
+        },
+      },
+    };
+  </script>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+
+  <!-- Konten utama -->
+  <div id="main-content" class="opacity-0 animate-fadeInSlow">
+
+    <!-- Navbar -->
+    <header class="bg-white shadow-md">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+        <h1 class="text-xl sm:text-2xl font-bold text-blue-600">Portofolio</h1>
+        <nav class="space-x-2 sm:space-x-4 text-sm sm:text-base">
+          <a href="#about" class="hover:text-blue-500">Tentang</a>
+          <a href="#projects" class="hover:text-blue-500">Proyek</a>
+          <a href="#contact" class="hover:text-blue-500">Kontak</a>
+        </nav>
+      </div>
+    </header>
+
+<section class="bg-blue-600 text-white py-16">
+  <div class="max-w-6xl mx-auto px-4 flex flex-col-reverse md:flex-row items-center gap-8">
+
+    <!-- Teks Hero dengan delay -->
+    <div class="w-full md:w-1/2 text-center md:text-left animate-fadeInSlow delay-500">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4 leading-tight">
+        Halo, saya <span class="text-yellow-300">M. Hilyan Rafiqi</span>
+      </h2>
+      <p class="text-base sm:text-lg mb-6">
+        Web Developer fokus Front-End dan UI/UX.
+      </p>
+      <a href="#projects" class="inline-block bg-white text-blue-600 font-semibold px-5 py-2 rounded hover:bg-blue-100 transition">
+        Lihat Project
+      </a>
+    </div>
+
+    <!-- Gambar Hero dengan delay lebih panjang -->
+    <div class="w-full md:w-1/2 flex justify-center animate-fadeInSlow delay-700">
+      <img src="wa.jpeg" alt="Foto Saya"
+           class="w-36 h-36 sm:w-48 sm:h-48 object-cover rounded-full border-4 border-white shadow-lg" />
+    </div>
+
+  </div>
+</section>
+
+
+
+    <!-- Tentang Saya -->
+    <section id="about" class="py-12 px-4 sm:px-6 animate-fadeInSlow">
+      <div class="max-w-3xl mx-auto text-center md:text-left">
+        <h3 class="text-2xl sm:text-3xl font-bold mb-4">Tentang Saya</h3>
+        <p class="text-base sm:text-lg leading-relaxed text-gray-700">
+          Saya pengembang web yang menyukai desain antarmuka bersih dan interaktif.
+          Fokus pada front-end development menggunakan HTML, CSS, Tailwind, dan JavaScript.
+        </p>
+      </div>
+    </section>
+
+    <!-- Proyek -->
+    <section id="projects" class="bg-gray-200 py-12 px-4 sm:px-6 animate-fadeInSlow">
+      <div class="max-w-6xl mx-auto">
+        <h3 class="text-2xl sm:text-3xl font-bold mb-8 text-center">Project Saya</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div class="bg-white p-5 rounded shadow hover:shadow-lg transition">
+            <h4 class="text-xl font-semibold mb-2">Project 1</h4>
+            <p class="text-gray-600 text-sm">Deskripsi proyek dan teknologi yang digunakan.</p>
+          </div>
+          <div class="bg-white p-5 rounded shadow hover:shadow-lg transition">
+            <h4 class="text-xl font-semibold mb-2">Project 2</h4>
+            <p class="text-gray-600 text-sm">Deskripsi proyek dan teknologi yang digunakan.</p>
+          </div>
+          <div class="bg-white p-5 rounded shadow hover:shadow-lg transition">
+            <h4 class="text-xl font-semibold mb-2">Project 3</h4>
+            <p class="text-gray-600 text-sm">Deskripsi proyek dan teknologi yang digunakan.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontak -->
+    <section id="contact" class="py-12 px-4 sm:px-6 animate-fadeInSlow">
+      <div class="max-w-xl mx-auto text-center">
+        <h3 class="text-2xl sm:text-3xl font-bold mb-4">Hubungi Saya</h3>
+        <p class="mb-6 text-base sm:text-lg text-gray-700">
+          Ingin bekerja sama? Hubungi saya via email di bawah.
+        </p>
+        <a href="mailto:hilyan45@gmail.com"
+           class="inline-block bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition">
+          Kirim Email
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-6 text-center text-sm text-gray-500 animate-fadeInSlow">
+      &copy; 2025 M. Hilyan Rafiqi. Semua hak dilindungi.
+    </footer>
+
+  </div> <!-- end of #main-content -->
+
+  <!-- Script: Hilangkan overlay setelah halaman selesai dimuat -->
+  <script>
+    window.addEventListener('load', () => {
+      const overlay = document.getElementById('page-transition');
+      overlay.classList.add('opacity-0');
+      setTimeout(() => {
+        overlay.style.display = 'none';
+      }, 2000); // Sesuaikan dengan durasi transisi overlay
+    });
+  </script>
+</body>
+</html>
